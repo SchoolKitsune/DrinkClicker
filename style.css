@@ -3,6 +3,11 @@
     height: 50px;
 }
 
+#bucket_img {
+    width: 60px;
+    height: 60px;
+}
+
 body {
      align-items: center;
 }
