@@ -8,10 +8,37 @@
     height: 60px;
 }
 
+#soda_river_img {
+    width: 50px;
+    height: 50px;
+}
+
+#brewery_img {
+    width: 50px;
+    height: 50px;
+}
+
+#soda_lake_img {
+    width: 50px;
+    height: 50px;
+}
+
+#alchemy_lab_img {
+    width: 50px;
+    height: 50px;
+}
+
+#soda_ocean_img {
+    width: 50px;
+    height: 50px;
+}
+
 body {
      align-items: center;
+     background-color: #53D8AE;
 }
 .container {
     display: flex;
     flex-direction: row;
+    background-color: #02C39A;
 }
