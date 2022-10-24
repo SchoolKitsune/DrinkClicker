@@ -33,6 +33,15 @@ soda_lake = 0;
 alchemy_lab = 0;
 soda_ocean = 0;
 
+//Upgrades
+
+cursor_upgrade_1 = 0
+cursor_upgrade_2 = 0
+cursor_upgrade_3 = 0
+bucket_upgrade_1 = 0
+bucket_upgrade_2 = 0
+bucket_upgrade_3 = 0
+
 cursor_potency = 0,1;
 bucket_potency = 1;
 soda_river_potency = 8;

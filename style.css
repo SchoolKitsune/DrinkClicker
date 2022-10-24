@@ -34,11 +34,36 @@
 }
 
 body {
+     display: flex;
+     justify-content: flex-end;
      align-items: center;
      background-color: #53D8AE;
 }
 .container {
+    margin-right: 800px;
+    margin-left: 50px;
+    text-align: center;
     display: flex;
     flex-direction: row;
+    align-items: center;
     background-color: #02C39A;
+}
+
+.shop {
+    display: flex;
+    flex-direction: column;
+    padding-left: 70px;
+    padding-right: 50px;
+    background-color: #00A896;
+    border-style: solid;
+    border-color: #028090;
+}
+
+.shop_title {
+    text-align: center;
+}
+
+.brewery_building {
+    border-style: solid;
+    border-color: #028090;
 }
