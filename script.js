@@ -22,6 +22,13 @@ soda_ocean_EL = document.querySelector("#soda_ocean_img");
 soda_ocean_num_EL = document.querySelector("#soda_ocean_num");
 soda_ocean_price_EL = document.querySelector("#soda_ocean_price");
 
+cursor_upgrade_1_EL = document.querySelector("#cursor_upgrade_img");
+cursor_upgrade_1_num_EL = document.querySelector("#cursor_upgrade_1_num");
+cursor_upgrade_price_1_EL = document.querySelector("#cursor_upgrade_price_1");
+
+soda_stat_num_EL = document.querySelector("#soda_stat_num");
+times_clicked_num_EL = document.querySelector("#times_clicked_num");
+
 console.log(soda_num_EL);
 
 soda = 0;
@@ -41,15 +48,33 @@ cursor_upgrade_3 = 0
 bucket_upgrade_1 = 0
 bucket_upgrade_2 = 0
 bucket_upgrade_3 = 0
+soda_river_upgrade_1 = 0
+soda_river_upgrade_2 = 0
+soda_river_upgrade_3 = 0
+brewery_upgrade_1 = 0
+brewery_upgrade_2 = 0
+brewery_upgrade_3 = 0
+soda_lake_upgrade_1 = 0
+soda_lake_upgrade_2 = 0
+soda_lake_upgrade_3 = 0
+alchemy_lab_upgrade_1 = 0
+alchemy_lab_upgrade_2 = 0
+alchemy_lab_upgrade_3 = 0
+soda_ocean_upgrade_1 = 0
+soda_ocean_upgrade_2 = 0
+soda_ocean_upgrade_3 = 0
 
-cursor_potency = 0,1;
-bucket_potency = 1;
+//Potency
+
+cursor_potency = 1;
+bucket_potency = 4;
 soda_river_potency = 8;
 brewery_potency = 47;
 soda_lake_potency = 260;
 alchemy_lab_potency = 1400;
 soda_ocean_potency = 7800;
 
+//Prices
 
 cursor_price = 15;
 bucket_price = 100;
@@ -58,6 +83,21 @@ brewery_price = 12000;
 soda_lake_price = 130000;
 alchemy_lab_price = 1400000;
 soda_ocean_price = 20000000;
+
+cursor_upgrade_price_1 = 100
+cursor_upgrade_price_2 = 500
+cursor_upgrade_price_3 = 10000
+
+//Stats
+
+soda_stat_num = 0
+times_clicked_num = 0
+
+//Price info about upgrades
+
+cursor_upgrade_price_1_EL.innerHTML = "Price: " + Math.round(cursor_upgrade_price_1)
+
+//Price math and info about buildings 
 
 cursor_num_EL.innerHTML = "Number of cursors: " + cursor;
 cursor_price_EL.innerHTML = "Price: " + Math.round(cursor_price)
@@ -74,11 +114,25 @@ alchemy_lab_price_EL.innerHTML = "Price: " + Math.round(alchemy_lab_price)
 soda_ocean_num_EL.innerHTML = "Number of soda oceans: " + cursor;
 soda_ocean_price_EL.innerHTML = "Price: " + Math.round(soda_ocean_price)
 
-function soda_click(){ //each time you click you gain soda
+function soda_click(){ //each time the conditions for the function are met, add soda
     soda++;
+    soda_stat_num++;
+    times_clicked_num++;
+}
+//Functions for when you buy upgrades
+
+function buy_cursor_upgrade_1(){
+    if (soda >= cursor_upgrade_price_1){
+            cursor_potency = 2
+            cursor_upgrade_price_1_EL.innerHTML = 0
+        soda -= cursor_upgrade_price_1;
+        cursor_upgrade_price_1_EL.innerHTML = "Price: " + Math.round(cursor_upgrade_price_1)
+        
+    }
+    
 }
 
-
+//Functions for when you buy buildings
 
 function buy_cursor(){
     if (soda >= cursor_price){
@@ -104,7 +158,7 @@ function buy_bucket(){
 
 function buy_soda_river(){
     if (soda >= soda_river_price){
-        soda_river++;
+            soda_river++;
        soda -= soda_river_price;
        soda_river_num_EL.innerHTML = "Number of soda rivers: " + soda_river;
        soda_river_price *= 1.15
@@ -114,7 +168,7 @@ function buy_soda_river(){
 }
 
 function buy_brewery(){
-    if (soda >= _price){
+    if (soda >= brewery_price){
         brewery++;
        soda -= brewery_price;
        brewery_num_EL.innerHTML = "Number of breweries : " + brewery;
@@ -138,7 +192,7 @@ function buy_soda_lake(){
 function buy_alchemy_lab(){
     if (soda >= alchemy_lab_price){
         alchemy_lab++;
-       soda -= _price;
+       soda -= alchemy_lab_price;
        alchemy_lab_num_EL.innerHTML = "Number of alchemy labs: " + alchemy_lab;
        alchemy_lab_price *= 1.15
        alchemy_lab_price_EL.innerHTML = "Price: " + Math.round(alchemy_lab_price)
@@ -149,15 +203,15 @@ function buy_alchemy_lab(){
 function buy_soda_ocean(){
     if (soda >= soda_ocean_price){
         soda_ocean++;
-       soda -= _price;
+       soda -= soda_ocean_price;
        soda_ocean_num_EL.innerHTML = "Number of soda oceans: " + soda_ocean;
        soda_ocean_price *= 1.15;
        soda_ocean_price_EL.innerHTML = "Price: " + Math.round(soda_ocean_price);
     }
 
 }
-
-soda_EL.addEventListener("click", soda_click); // when we click the soda
+// when we click the right button run the coresponding function
+soda_EL.addEventListener("click", soda_click);
 cursor_EL.addEventListener("click", buy_cursor)
 bucket_EL.addEventListener("click", buy_bucket)
 soda_river_EL.addEventListener("click", buy_soda_river)
@@ -165,6 +219,7 @@ brewery_EL.addEventListener("click", buy_brewery)
 soda_lake_EL.addEventListener("click", buy_soda_lake)
 alchemy_lab_EL.addEventListener("click", buy_alchemy_lab)
 soda_ocean_EL.addEventListener("click", buy_soda_ocean)
+cursor_upgrade_1_EL.addEventListener("click", buy_cursor_upgrade_1)
 
 
 var cursor_timer = setInterval(cursortimer, 1000); // runs the myTimer function 1 time a second
@@ -176,11 +231,21 @@ function cursortimer(){
     soda += soda_lake*soda_lake_potency;
     soda += alchemy_lab*alchemy_lab_potency;
     soda += soda_ocean*soda_ocean_potency;
+    soda_stat_num += cursor*cursor_potency;
+    soda_stat_num += bucket*bucket_potency;
+    soda_stat_num += soda_river*soda_river_potency;
+    soda_stat_num += brewery*brewery_potency;
+    soda_stat_num += soda_lake*soda_lake_potency;
+    soda_stat_num += alchemy_lab*alchemy_lab_potency;
+    soda_stat_num += soda_ocean*soda_ocean_potency;
 
 }
 
 var timer = setInterval(myTimer, 10); // runs the myTimer function 1 time a second
 function myTimer(){ 
-    soda_num_EL.innerHTML = Math.round(soda)
+    soda_num_EL.innerHTML = Math.round(soda);
+    soda_stat_num_EL.innerHTML = Math.round(soda_stat_num);
+    times_clicked_num_EL.innerHTML = Math.round(times_clicked_num);
+
     
 }

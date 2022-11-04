@@ -1,47 +1,14 @@
-#cursor_img {
-    width: 50px;
-    height: 50px;
-}
-
-#bucket_img {
-    width: 60px;
-    height: 60px;
-}
-
-#soda_river_img {
-    width: 50px;
-    height: 50px;
-}
-
-#brewery_img {
-    width: 50px;
-    height: 50px;
-}
-
-#soda_lake_img {
-    width: 50px;
-    height: 50px;
-}
-
-#alchemy_lab_img {
-    width: 50px;
-    height: 50px;
-}
-
-#soda_ocean_img {
-    width: 50px;
-    height: 50px;
-}
-
 body {
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     background-color: #53D8AE;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #02C39A;
+    height: 1200;
 }
 .container {
-    margin-right: 800px;
-    margin-left: 50px;
+ 
+    margin-right: 45px;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -49,21 +16,48 @@ body {
     background-color: #02C39A;
 }
 
+.left{
+    text-align: center;
+    margin-left: 25px;
+    background-color: #00A896;
+    border: 3px solid;
+    padding: 45px;
+}
+
 .shop {
-    display: flex;
     flex-direction: column;
-    padding-left: 70px;
-    padding-right: 50px;
     background-color: #00A896;
     border-style: solid;
-    border-color: #028090;
+    border-color: black;
+    width: 500px;
+    overflow: scroll;
+}
+
+.shop_title {
+    border: solid;
+    border-color: black;
+}
+
+.building img {
+    width: 50px;
+    height: 50px;
+}
+
+#cursor_img {
+    height: 55px;
+}
+
+#cursor_upgrade_img {
+    width: 50px;
+    height: 55px;
 }
 
 .shop_title {
     text-align: center;
 }
 
-.brewery_building {
+.building {
     border-style: solid;
-    border-color: #028090;
+    border-color: black;
+    padding-left: 50px;
 }
