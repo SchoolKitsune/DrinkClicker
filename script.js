@@ -100,6 +100,7 @@ times_clicked_num = 0
 
 //Price info about upgrades
 
+//cursor_upgrade_num_1_EL.innerHTML = "Number of cursor upgrades: " + cursor_upgrade_1;
 cursor_upgrade_price_1_EL.innerHTML = "Price: " + Math.round(cursor_upgrade_price_1)
 
 //Price math and info about buildings
@@ -129,9 +130,11 @@ function soda_click(){ //Each time the conditions for the function are met, add 
 
 function buy_cursor_upgrade_1(){
     if (soda >= cursor_upgrade_price_1){
-            cursor_potency = 2
-            cursor_upgrade_price_1_EL.innerHTML = 0
+            cursor_potency += 1;
+            cursor_upgrade_1 += 1;
         soda -= cursor_upgrade_price_1;
+        cursor_upgrade_1_num_EL.innerHTML = "Number of cursor upgrades: " + cursor_upgrade_1;
+        cursor_upgrade_price_1 *= 1.15
         cursor_upgrade_price_1_EL.innerHTML = "Price: " + Math.round(cursor_upgrade_price_1)
         
     }
