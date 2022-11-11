@@ -100,7 +100,7 @@ times_clicked_num = 0
 
 //Price info about upgrades
 
-//cursor_upgrade_num_1_EL.innerHTML = "Number of cursor upgrades: " + cursor_upgrade_1;
+//cursor_upgrade_num_1_EL.innerHTML = "Number of cursor upgrades: " + cursor_upgrade_1; Vis jeg slår denne på vil alt info bli ødelagt
 cursor_upgrade_price_1_EL.innerHTML = "Price: " + Math.round(cursor_upgrade_price_1)
 
 //Price math and info about buildings
@@ -125,6 +125,7 @@ function soda_click(){ //Each time the conditions for the function are met, add 
     soda++;
     soda_stat_num++;
     times_clicked_num++;
+    
 }
 //Functions for when you buy upgrades
 
